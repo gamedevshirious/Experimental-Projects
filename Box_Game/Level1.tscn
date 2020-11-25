@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Level1.gd" type="Script" id=1]
+[ext_resource path="res://Block.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Node2D" index="0"]
+
+position = Vector2( -3.4248, 0 )
+script = ExtResource( 1 )
+
+[node name="Spawnpoint1" type="Position2D" parent="." index="0"]
+
+position = Vector2( 1259.65, -1280.62 )
+rotation = -3.14159
+scale = Vector2( 7.94594, -7.99833 )
+
+[node name="Blocks" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 146.769, 690.711 )
+scale = Vector2( 167.727, 1 )
+
+[node name="Block" parent="Blocks" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 6.40138, -154.501 )
+scale = Vector2( 0.803512, 1 )
+
+[node name="Block3" parent="Blocks" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -18.218, -561.817 )
+scale = Vector2( 0.803512, 1 )
+
+[node name="Block4" parent="Blocks" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 10.6721, -955.088 )
+scale = Vector2( 0.803512, 1 )
+
+[node name="Block2" parent="Blocks" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( -285.642, 22.6725 )
+scale = Vector2( 10, 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Block6" parent="Blocks" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( -69.5706, -3836.28 )
+rotation = -3.14117
+scale = Vector2( 0.0109499, 120 )
+_sections_unfolded = [ "Transform" ]
+
+

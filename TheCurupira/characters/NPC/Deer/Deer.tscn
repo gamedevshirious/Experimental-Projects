@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/NPC/Deer/script.gd" type="Script" id=1]
+[ext_resource path="res://characters/NPC/Hunter/sprite.png" type="Texture" id=2]
+
+[node name="Deer" type="KinematicBody2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -30, -30, 30, -30, 30, 10, 0, 30, -30, 10 )
+
+[node name="BehaviourTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="StatusLabel" type="Label" parent="."]
+margin_left = 10.0
+margin_top = -55.0
+margin_right = 50.0
+margin_bottom = -41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="BehaviourTimer" to="." method="_on_BehaviourTimer_timeout"]

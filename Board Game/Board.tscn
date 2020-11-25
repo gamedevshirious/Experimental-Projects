@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Board.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Board.png" type="Texture" id=2]
+[ext_resource path="res://Rectangle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://chip.tres" type="TileSet" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[node name="Board" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="Board_image" type="Sprite" parent="." index="0"]
+
+position = Vector2( 511.869, 300 )
+scale = Vector2( 1.33635, 1.19849 )
+texture = ExtResource( 2 )
+
+[node name="Rects" type="Node2D" parent="Board_image" index="0"]
+
+position = Vector2( 6.83789, -195.204 )
+scale = Vector2( 0.285918, 0.225563 )
+
+[node name="Rectangle1" parent="Board_image/Rects" index="0" instance=ExtResource( 3 )]
+
+position = Vector2( 0, -1.44543 )
+scale = Vector2( 1, 0.95483 )
+
+[node name="Rectangle2" parent="Board_image/Rects" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 3.90515, 1756.83 )
+scale = Vector2( 1, 0.916678 )
+
+[node name="Rectangle3" parent="Board_image/Rects" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -1045.88, 876.861 )
+scale = Vector2( 0.914119, 1.09463 )
+
+[node name="Rectangle4" parent="Board_image/Rects" index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 1020.09, 862.028 )
+scale = Vector2( 0.860483, 1.00877 )
+
+[node name="Button" type="Button" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 413.0
+margin_top = 240.0
+margin_right = 624.0
+margin_bottom = 365.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Turn"
+flat = false
+align = 1
+
+[node name="Grid" type="TileMap" parent="." index="2"]
+
+position = Vector2( 10, 0 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 40, 30 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="icon" type="Sprite" parent="Grid" index="0"]
+
+position = Vector2( 95.7947, 187.976 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+
+

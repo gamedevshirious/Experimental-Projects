@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://SmallBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SmallBox.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512.859, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 126.889 )
+
+[node name="CollisionPi" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 484.384, 600.306 )
+shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2( 1359.54, 435.204 )
+rotation = -0.430109
+shape = SubResource( 1 )
+
+[node name="SmallObject" parent="." instance=ExtResource( 1 )]
+position = Vector2( 515.115, 558.518 )
+linear_damp = 0.0
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 0.0622406, 463.51 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource( 2 )
+
+[node name="LargeObject" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1220, 320 )
+mass = 100.0
+script = ExtResource( 2 )

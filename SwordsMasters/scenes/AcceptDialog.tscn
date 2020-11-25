@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="AcceptDialog" type="AcceptDialog"]
+margin_left = 246.0
+margin_top = 195.0
+margin_right = 712.0
+margin_bottom = 253.0
+popup_exclusive = true
+window_title = "Sorry for Inconvinience!"
+dialog_text = "Connection to server Failed!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

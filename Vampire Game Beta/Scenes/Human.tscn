@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 28.3156
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.0434, 32.1747 )
+
+[node name="Human" type="Node2D"]
+
+[node name="Head" type="Area2D" parent="." index="0"]
+
+editor/display_folded = true
+position = Vector2( 0.360352, -32.0093 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Body" type="Area2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 0, 75.1248 )
+scale = Vector2( 1, 2.33863 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" index="0"]
+
+shape = SubResource( 2 )
+
+

@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Matchmaking.gd" type="Script" id=2]
+[ext_resource path="res://scenes/AcceptDialog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+
+[node name="Matchmaking" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Player1" type="Control" parent="HUD"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HUD/Player1"]
+margin_left = 19.0
+margin_top = 12.0
+margin_right = 222.0
+margin_bottom = 29.0
+text = "Waiting to Join..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="ProgressBar" parent="HUD/Player1"]
+margin_left = 19.0
+margin_top = 49.0
+margin_right = 222.0
+margin_bottom = 63.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2" type="Control" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -237.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HUD/Player2"]
+margin_left = 19.0
+margin_top = 12.0
+margin_right = 222.0
+margin_bottom = 29.0
+text = "Waiting to Join..."
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HP" type="ProgressBar" parent="HUD/Player2"]
+margin_left = 19.0
+margin_top = 49.0
+margin_right = 222.0
+margin_bottom = 63.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="floor" parent="." instance=ExtResource( 1 )]
+position = Vector2( 469.679, 552.399 )
+scale = Vector2( 1, 5 )
+
+[node name="AcceptDialog" parent="." instance=ExtResource( 3 )]
+pause_mode = 2
+
+[node name="UpdatePosTimer" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="SP1" type="Position2D" parent="."]
+position = Vector2( 246, 253 )
+
+[node name="SP2" type="Position2D" parent="."]
+position = Vector2( 748.112, 253 )
+
+[node name="Player1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 285, 177 )
+
+[node name="Player2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 694, 177 )
+scale = Vector2( -0.25, 0.25 )
+[connection signal="confirmed" from="AcceptDialog" to="." method="_on_AcceptDialog_confirmed"]
+[connection signal="timeout" from="UpdatePosTimer" to="." method="_on_UpdatePosTimer_timeout"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Car.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Track" type="Node2D" parent="." index="0"]
+
+position = Vector2( -101.796, 62.3301 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="P1" parent="Track" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 37.7623, 221.032 )
+scale = Vector2( 1.00804, 1.01014 )
+_sections_unfolded = [ "Region" ]
+rotation_speed = 2
+
+[node name="P2" parent="Track" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 37.6092, 155.981 )
+scale = Vector2( 0.998018, 0.99693 )
+_sections_unfolded = [ "Region" ]
+rotation_speed = 2
+
+[node name="HUD" parent="." index="1" instance=ExtResource( 3 )]
+
+

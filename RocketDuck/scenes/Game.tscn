@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Game.gd" type="Script" id=1]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="score_label" type="Label" parent="HUD"]
+margin_left = 835.0
+margin_top = 27.0
+margin_right = 974.0
+margin_bottom = 68.0
+text = "Score : 0
+"
+
+[node name="game_over_label" type="Label" parent="HUD"]
+visible = false
+margin_left = 502.564
+margin_top = 238.221
+margin_right = 577.564
+margin_bottom = 255.221
+text = "Game Over"
+
+[node name="restart" type="Button" parent="HUD/game_over_label"]
+margin_left = 8.26855
+margin_top = 26.7229
+margin_right = 65.2686
+margin_bottom = 46.7229
+mouse_default_cursor_shape = 1
+text = "Restart"
+
+[node name="score_label" type="Label" parent="HUD/game_over_label"]
+margin_left = 10.0785
+margin_top = -20.9422
+margin_right = 149.078
+margin_bottom = 20.0578
+text = "Score : 0
+"
+
+[node name="TextureButton" type="TextureButton" parent="HUD"]
+margin_right = 1024.0
+margin_bottom = 602.0
+
+[node name="birdspawn" type="Position2D" parent="."]
+position = Vector2( 175, 300 )
+
+[node name="wallspawn" type="Position2D" parent="."]
+position = Vector2( 1200, 300 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="HUD/game_over_label/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://catfighter/CatFighter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://gun.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 766.687, 4.92163 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 51.9962, 125.041 )
+
+[node name="World" type="Node"]
+
+[node name="gun" parent="." instance=ExtResource( 3 )]
+position = Vector2( 506.457, 518.915 )
+scale = Vector2( 2.5, 2.5 )
+
+[node name="gun_spawn" type="Position2D" parent="."]
+position = Vector2( 605.484, 512.979 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 479.266, 586.702 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="CatFighter" parent="." instance=ExtResource( 1 )]
+position = Vector2( 305.838, 454.783 )
+
+[node name="Table2" type="StaticBody2D" parent="."]
+position = Vector2( 944.779, 435.925 )
+
+[node name="Sprite" type="Sprite" parent="Table2"]
+position = Vector2( 22.1053, 7.36839 )
+scale = Vector2( 1.69079, 3.86184 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2( 21.0526, 3.1579 )
+shape = SubResource( 2 )

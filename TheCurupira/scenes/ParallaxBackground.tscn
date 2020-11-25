@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/parallax_forest_pack/layers/parallax-forest-middle-trees.png" type="Texture" id=1]
+[ext_resource path="res://scenes/parallax_forest_pack/layers/parallax-forest-lights.png" type="Texture" id=2]
+[ext_resource path="res://scenes/parallax_forest_pack/layers/parallax-forest-back-trees.png" type="Texture" id=3]
+[ext_resource path="res://scenes/parallax_forest_pack/layers/parallax-forest-front-trees.png" type="Texture" id=4]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+follow_viewport_enable = true
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="parallax-forest-back-trees" type="Sprite" parent="ParallaxLayer1"]
+scale = Vector2( 3.77, 3.77 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.75, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="parallax-forest-lights" type="Sprite" parent="ParallaxLayer2"]
+scale = Vector2( 3.77, 3.77 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.85, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="parallax-forest-middle-trees" type="Sprite" parent="ParallaxLayer3"]
+scale = Vector2( 3.77, 3.77 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.95, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="parallax-forest-front-trees" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( 2.37842, 0 )
+scale = Vector2( 3.77, 3.77 )
+texture = ExtResource( 4 )
+centered = false

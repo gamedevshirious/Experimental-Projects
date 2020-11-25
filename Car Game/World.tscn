@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+
+[node name="World" type="Spatial"]
+transform = Transform( 0.891502, 0, 0.453017, 0, 1, 0, -0.453017, 0, 0.891502, 0, 0, 0 )
+
+[node name="Floor" type="CSGBox" parent="."]
+editor/display_folded = true
+use_collision = true
+width = 200.0
+height = 0.5
+depth = 200.0
+
+[node name="Wall 1" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100 )
+width = 200.0
+height = 5.0
+depth = 1.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.998145, 0, 0.0608924, 0, 1, 0, -0.0608924, 0, -0.998145, -93.3135, 5.57174, -25.7173 )
