@@ -63,9 +63,8 @@ func _process(_delta):
 		y_velo = -0.1
 	if y_velo < -MAX_FALL_SPEED:
 		y_velo = -MAX_FALL_SPEED
+	print(grounded)
 
-	if abs(move_vec.x) != 0 or abs(move_vec.z) != 0:
-		play_anim("walk")
 
 #	if Input.is_action_just_pressed("shoot"):
 #		if zoomed_in:
@@ -82,7 +81,14 @@ func _process(_delta):
 #	if just_jumped:
 #		play_anim("jump")
 	if grounded:
+		if abs(move_vec.x) > 5 or abs(move_vec.z) > 5:
+			play_anim("walk")
+		else:
+			play_anim("idle")
+	else:
 		play_anim("idle")
 
 func play_anim(name):
+#	if anim.get_current_node() == name:
+#		return
 	anim.travel(name)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://3D/xyz/XYZ.gd" type="Script" id=1]
 
@@ -13,11 +13,117 @@ height = 0.6
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 0.3, 1, 0.8 )
 
-[sub_resource type="CubeMesh" id=4]
-size = Vector3( 0.3, 1, 0.3 )
+[sub_resource type="CapsuleMesh" id=4]
+radius = 0.12
+
+[sub_resource type="Animation" id=13]
+resource_name = "legs_idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/legs/right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/legs/right/knee:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.27222e-13, -3.25689e-12, 1.06722e-07 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/legs/left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/legs/left/knee:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=6]
-resource_name = "idle"
+resource_name = "legs_walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/legs/right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 15 ), Vector3( 0, 0, -15 ), Vector3( 0, 0, 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/legs/right/knee:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.27222e-13, -3.25689e-12, 1.06722e-07 ), Vector3( 0, 0, -20 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Mesh/legs/left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -15 ), Vector3( 0, 0, 15 ), Vector3( 0, 0, -15 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Mesh/legs/left/knee:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -20 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -20 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "torso_idle"
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -33,12 +139,12 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 2.65054, 0 ), Vector3( 0, 2.66, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "walk"
+[sub_resource type="Animation" id=14]
+resource_name = "torso_walk"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Mesh/legs/right:rotation_degrees")
+tracks/0/path = NodePath("Mesh/torso:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -47,61 +153,55 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 20 ), Vector3( 0, 0, -20 ), Vector3( 0, 0, 20 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Mesh/legs/right/knee:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 1.27222e-13, -3.25689e-12, 1.06722e-07 ), Vector3( 0, 0, -40 ), Vector3( 1.27222e-13, -3.25689e-12, 1.06722e-07 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Mesh/legs/left:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -20 ), Vector3( 0, 0, 20 ), Vector3( 0, 0, -20 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Mesh/legs/left/knee:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, -40 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -40 ) ]
+"values": [ Vector3( 0, 2.65771, 0 ), Vector3( 0, 2.7, 0 ), Vector3( 0, 2.65771, 0 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=7]
-animation = "idle"
+[sub_resource type="AnimationNodeAdd2" id=15]
 
-[sub_resource type="AnimationNodeAnimation" id=8]
-animation = "walk"
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "torso_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "legs_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeBlendTree" id=18]
+nodes/Add2/node = SubResource( 15 )
+nodes/Add2/position = Vector2( 460, 100 )
+nodes/Animation/node = SubResource( 17 )
+nodes/Animation/position = Vector2( 200, 60 )
+"nodes/Animation 2/node" = SubResource( 16 )
+"nodes/Animation 2/position" = Vector2( 180, 200 )
+nodes/output/position = Vector2( 680, 140 )
+node_connections = [ "output", 0, "Add2", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeAdd2" id=19]
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "torso_walk"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "legs_walk"
+
+[sub_resource type="AnimationNodeBlendTree" id=22]
+nodes/Add2/node = SubResource( 19 )
+nodes/Add2/position = Vector2( 360, 120 )
+nodes/Animation/node = SubResource( 21 )
+nodes/Animation/position = Vector2( 80, 60 )
+"nodes/Animation 2/node" = SubResource( 20 )
+"nodes/Animation 2/position" = Vector2( 80, 220 )
+nodes/output/position = Vector2( 580, 120 )
+node_connections = [ "output", 0, "Add2", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachine" id=11]
-states/idle/node = SubResource( 7 )
-states/idle/position = Vector2( 369, 132 )
-states/walk/node = SubResource( 8 )
-states/walk/position = Vector2( 605, 177 )
-transitions = [ "idle", "walk", SubResource( 9 ), "walk", "idle", SubResource( 10 ) ]
+states/idle/node = SubResource( 18 )
+states/idle/position = Vector2( 358, 145 )
+states/walk/node = SubResource( 22 )
+states/walk/position = Vector2( 593, 157 )
+transitions = [ "idle", "walk", SubResource( 23 ), "walk", "idle", SubResource( 24 ) ]
 start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
@@ -118,6 +218,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0202279, 0 )
 
 [node name="TPCamera" type="Camera" parent="CameraBase"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5219, 7.03768 )
+fov = 90.0
 size = 15.0
 
 [node name="Mesh" type="Spatial" parent="."]
@@ -131,9 +232,10 @@ material/0 = null
 
 [node name="FPCamera" type="Camera" parent="Mesh/head"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.0349627, 0 )
+fov = 90.0
 
 [node name="torso" type="MeshInstance" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65277, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69434, 0 )
 mesh = SubResource( 3 )
 material/0 = null
 
@@ -141,43 +243,48 @@ material/0 = null
 transform = Transform( 0.998068, 0, -0.0621286, 0, 1, 0, 0.0621286, 0, 0.998068, 0, -0.0174801, 0 )
 
 [node name="right" type="Position3D" parent="Mesh/legs"]
-transform = Transform( 0.950979, -0.309255, 0, 0.309255, 0.950979, 0, 0, 0, 1, -6.5096e-08, 2.329, 0.199556 )
+transform = Transform( 0.981669, 0.19059, 0, -0.19059, 0.981669, 0, 0, 0, 1, 0.0274313, 2.23576, 0.193319 )
 
 [node name="upper" type="MeshInstance" parent="Mesh/legs/right"]
-transform = Transform( 1, -1.86265e-09, 1.7053e-13, 1.86265e-09, 1, 3.9968e-15, 7.10543e-14, 3.10862e-15, 1, -0.005, -0.35, 0.019 )
+transform = Transform( 1, 0, -2.98023e-08, -2.98023e-08, -1.61119e-07, -1, -7.45058e-09, 1, -1.66707e-07, -0.0171196, -0.421865, 0.019 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="knee" type="Position3D" parent="Mesh/legs/right"]
-transform = Transform( 0.9994, 0.0346496, -5.40216e-14, -0.0346496, 0.9994, -2.11022e-15, 5.39161e-14, 3.98078e-15, 1, 0.0621329, -0.69751, 0 )
+transform = Transform( 0.954633, 0.297788, -7.60338e-15, -0.297788, 0.954633, -2.97006e-16, 7.16999e-15, 2.54773e-15, 1, -0.00956744, -0.908974, 0.0147068 )
 
 [node name="lower" type="MeshInstance" parent="Mesh/legs/right/knee"]
-transform = Transform( 1, -1.86265e-09, 1.98952e-13, 1.86265e-09, 1, 3.9968e-15, 4.26326e-14, 2.22045e-15, 1, -0.0532454, -0.350262, 0.019 )
+transform = Transform( 0.999998, 1.11759e-08, -1.19209e-07, -2.38419e-07, -1.49012e-07, -0.999999, 6.70552e-08, 0.999999, -1.45286e-07, -0.000300884, -0.510887, 0.010267 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="left" type="Position3D" parent="Mesh/legs"]
-transform = Transform( 0.950979, 0.309255, 0, -0.309255, 0.950979, 0, 0, 0, 1, 1.05454e-08, 2.329, -0.264727 )
+transform = Transform( 0.981669, -0.19059, 0, 0.19059, 0.981669, 0, 0, 0, 1, -0.0102438, 2.23576, -0.210141 )
 
 [node name="upper" type="MeshInstance" parent="Mesh/legs/left"]
-transform = Transform( 1, -1.86265e-09, 1.7053e-13, 1.86265e-09, 1, 3.9968e-15, 7.10543e-14, 3.10862e-15, 1, -0.005, -0.35, 0.019 )
+transform = Transform( 1, 0, 0, 2.98023e-08, -1.62981e-07, -1, -7.45058e-09, 1, -1.62981e-07, 0.00711972, -0.421865, 0.019 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="knee" type="Position3D" parent="Mesh/legs/left"]
-transform = Transform( 0.787857, 0.615858, 0, -0.615858, 0.787857, 0, 0, 0, 1, 0.0621329, -0.69751, 0 )
+transform = Transform( 0.99891, 0.0466741, 0, -0.0466741, 0.998911, 0, 0, 0, 1, 0.0167009, -0.955345, 0.00863826 )
 
 [node name="lower" type="MeshInstance" parent="Mesh/legs/left/knee"]
-transform = Transform( 1, -1.86265e-09, 1.98952e-13, 1.86265e-09, 1, 3.9968e-15, 4.26326e-14, 2.22045e-15, 1, -0.0532454, -0.350262, 0.019 )
+transform = Transform( 1, 1.49012e-08, 3.42727e-07, 2.38419e-07, -1.83471e-07, -1, -2.23517e-08, 1, -1.37836e-07, -0.00734228, -0.503813, 0.0110506 )
 mesh = SubResource( 4 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 6 )
-anims/walk = SubResource( 5 )
+playback_process_mode = 2
+anims/legs_idle = SubResource( 13 )
+anims/legs_walk = SubResource( 6 )
+anims/torso_idle = SubResource( 5 )
+anims/torso_walk = SubResource( 14 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 12 )
+parameters/idle/Add2/add_amount = 1.0
+parameters/walk/Add2/add_amount = 1.0

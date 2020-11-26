@@ -4,7 +4,7 @@
 [ext_resource path="res://3D/ball/Ball.tscn" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.792157, 0.576471, 0.576471, 1 )
+albedo_color = Color( 0.196078, 0.196078, 0.196078, 1 )
 
 [sub_resource type="CubeMesh" id=2]
 material = SubResource( 1 )
