@@ -9,7 +9,7 @@ const H_LOOK_SENS = 1.0
 const V_LOOK_SENS = .1
 
 onready var tpcam = $CameraBase/TPCamera
-onready var fpcam = $Mesh/head/FPCamera
+onready var fpcam = $Mesh/head/head/FPCamera
 var cam
 var zoomed_in = false
 onready var anim = $AnimationTree.get("parameters/playback")
@@ -63,7 +63,6 @@ func _process(_delta):
 		y_velo = -0.1
 	if y_velo < -MAX_FALL_SPEED:
 		y_velo = -MAX_FALL_SPEED
-	print(grounded)
 
 
 #	if Input.is_action_just_pressed("shoot"):

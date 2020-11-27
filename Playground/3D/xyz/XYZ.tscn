@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://3D/xyz/XYZ.gd" type="Script" id=1]
 
@@ -10,13 +10,52 @@ height = 4.01187
 radius = 0.3
 height = 0.6
 
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 0.3, 1, 0.8 )
+[sub_resource type="CylinderMesh" id=27]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id=21]
+radius = 0.09
+mid_height = 0.75
+
+[sub_resource type="CapsuleMesh" id=22]
+radius = 0.09
+mid_height = 0.75
 
 [sub_resource type="CapsuleMesh" id=4]
 radius = 0.12
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=23]
+resource_name = "hands_walk"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mesh/torso/left:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -76.48, 3.05939e-05, -3.88221e-05 ), Vector3( -57.2866, -55.84, 59.8996 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mesh/torso/right:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -60, -135, 115 ), Vector3( -68.572, -210, 180 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 resource_name = "legs_idle"
 length = 2.0
 loop = true
@@ -122,12 +161,11 @@ tracks/3/keys = {
 "values": [ Vector3( 0, 0, -20 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -20 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "torso_idle"
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Mesh/torso:translation")
+tracks/0/path = NodePath("Mesh/torso/torso:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -139,12 +177,12 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 2.65054, 0 ), Vector3( 0, 2.66, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=8]
 resource_name = "torso_walk"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Mesh/torso:translation")
+tracks/0/path = NodePath("Mesh/torso/torso:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -156,55 +194,65 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 2.65771, 0 ), Vector3( 0, 2.7, 0 ), Vector3( 0, 2.65771, 0 ) ]
 }
 
-[sub_resource type="AnimationNodeAdd2" id=15]
+[sub_resource type="AnimationNodeAdd2" id=9]
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "torso_idle"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "legs_idle"
 
-[sub_resource type="AnimationNodeBlendTree" id=18]
-nodes/Add2/node = SubResource( 15 )
+[sub_resource type="AnimationNodeBlendTree" id=12]
+nodes/Add2/node = SubResource( 9 )
 nodes/Add2/position = Vector2( 460, 100 )
-nodes/Animation/node = SubResource( 17 )
+nodes/Animation/node = SubResource( 11 )
 nodes/Animation/position = Vector2( 200, 60 )
-"nodes/Animation 2/node" = SubResource( 16 )
+"nodes/Animation 2/node" = SubResource( 10 )
 "nodes/Animation 2/position" = Vector2( 180, 200 )
 nodes/output/position = Vector2( 680, 140 )
 node_connections = [ "output", 0, "Add2", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeAdd2" id=19]
+[sub_resource type="AnimationNodeAdd2" id=24]
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAdd2" id=25]
+
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "torso_walk"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "hands_walk"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "legs_walk"
 
-[sub_resource type="AnimationNodeBlendTree" id=22]
-nodes/Add2/node = SubResource( 19 )
-nodes/Add2/position = Vector2( 360, 120 )
-nodes/Animation/node = SubResource( 21 )
+[sub_resource type="AnimationNodeBlendTree" id=16]
+graph_offset = Vector2( 0, 0.25 )
+nodes/Add2/node = SubResource( 25 )
+nodes/Add2/position = Vector2( 300, 80 )
+"nodes/Add2 2/node" = SubResource( 24 )
+"nodes/Add2 2/position" = Vector2( 520, 200 )
+nodes/Animation/node = SubResource( 15 )
 nodes/Animation/position = Vector2( 80, 60 )
-"nodes/Animation 2/node" = SubResource( 20 )
-"nodes/Animation 2/position" = Vector2( 80, 220 )
-nodes/output/position = Vector2( 580, 120 )
-node_connections = [ "output", 0, "Add2", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
+"nodes/Animation 2/node" = SubResource( 14 )
+"nodes/Animation 2/position" = Vector2( 80, 200 )
+"nodes/Animation 3/node" = SubResource( 26 )
+"nodes/Animation 3/position" = Vector2( 80, 340 )
+nodes/output/position = Vector2( 920, 80 )
+node_connections = [ "output", 0, "Add2 2", "Add2 2", 0, "Add2", "Add2 2", 1, "Animation 3", "Add2", 0, "Animation", "Add2", 1, "Animation 2" ]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
-[sub_resource type="AnimationNodeStateMachine" id=11]
-states/idle/node = SubResource( 18 )
+[sub_resource type="AnimationNodeStateMachine" id=19]
+states/idle/node = SubResource( 12 )
 states/idle/position = Vector2( 358, 145 )
-states/walk/node = SubResource( 22 )
+states/walk/node = SubResource( 16 )
 states/walk/position = Vector2( 593, 157 )
-transitions = [ "idle", "walk", SubResource( 23 ), "walk", "idle", SubResource( 24 ) ]
+transitions = [ "idle", "walk", SubResource( 17 ), "walk", "idle", SubResource( 18 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=20]
 
 [node name="XYZ" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -224,26 +272,63 @@ size = 15.0
 [node name="Mesh" type="Spatial" parent="."]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
 
-[node name="head" type="MeshInstance" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4418, 0 )
+[node name="head" type="Spatial" parent="Mesh"]
+
+[node name="head" type="MeshInstance" parent="Mesh/head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67888, 0 )
 layers = 513
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="FPCamera" type="Camera" parent="Mesh/head"]
+[node name="FPCamera" type="Camera" parent="Mesh/head/head"]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, -0.0349627, 0 )
 fov = 90.0
 
-[node name="torso" type="MeshInstance" parent="Mesh"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.69434, 0 )
-mesh = SubResource( 3 )
+[node name="torso" type="Spatial" parent="Mesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148172, 0 )
+
+[node name="torso" type="MeshInstance" parent="Mesh/torso"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.66119, 0 )
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="left" type="Position3D" parent="Mesh/torso"]
+transform = Transform( 0.999745, -0.0085858, -0.0208688, 0.0223823, 0.259531, 0.965475, -0.00287329, -0.965696, 0.259657, 5.39233e-08, 3.18349, -0.330978 )
+
+[node name="upper" type="MeshInstance" parent="Mesh/torso/left"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67052e-08, 0.0358789, -0.409433 )
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="elbow" type="Position3D" parent="Mesh/torso/left"]
+transform = Transform( 0.95168, 0, -0.307091, 0, 1, 0, 0.307091, 0, 0.95168, 1.2721e-07, 0.05726, -0.780809 )
+
+[node name="hand" type="MeshInstance" parent="Mesh/torso/left/elbow"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63012e-08, -0.015347, -0.406953 )
+mesh = SubResource( 22 )
+material/0 = null
+
+[node name="right" type="Position3D" parent="Mesh/torso"]
+transform = Transform( 0.865489, 0.395993, -0.306786, 0.422249, -0.247225, 0.872115, 0.269507, -0.884346, -0.381179, -5.39269e-08, 3.05785, 0.331 )
+
+[node name="upper" type="MeshInstance" parent="Mesh/torso/right"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.409 )
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="elbow" type="Position3D" parent="Mesh/torso/right"]
+transform = Transform( 0.95168, 0, -0.307091, 0, 1, 1.42109e-14, 0.307091, 0, 0.95168, 1.16669e-07, 0.0249093, -0.780809 )
+
+[node name="hand" type="MeshInstance" parent="Mesh/torso/right/elbow"]
+transform = Transform( 1, -5.68434e-14, -2.98023e-08, -2.84217e-14, 1, 0, 2.98023e-08, -1.42109e-14, 1, 1.49012e-07, -0.022243, -0.406953 )
+mesh = SubResource( 22 )
 material/0 = null
 
 [node name="legs" type="Spatial" parent="Mesh"]
 transform = Transform( 0.998068, 0, -0.0621286, 0, 1, 0, 0.0621286, 0, 0.998068, 0, -0.0174801, 0 )
 
 [node name="right" type="Position3D" parent="Mesh/legs"]
-transform = Transform( 0.981669, 0.19059, 0, -0.19059, 0.981669, 0, 0, 0, 1, 0.0274313, 2.23576, 0.193319 )
+transform = Transform( 0.976177, -0.216973, 0, 0.216973, 0.976177, 0, 0, 0, 1, 0.0274313, 2.23576, 0.193319 )
 
 [node name="upper" type="MeshInstance" parent="Mesh/legs/right"]
 transform = Transform( 1, 0, -2.98023e-08, -2.98023e-08, -1.61119e-07, -1, -7.45058e-09, 1, -1.66707e-07, -0.0171196, -0.421865, 0.019 )
@@ -251,7 +336,7 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="knee" type="Position3D" parent="Mesh/legs/right"]
-transform = Transform( 0.954633, 0.297788, -7.60338e-15, -0.297788, 0.954633, -2.97006e-16, 7.16999e-15, 2.54773e-15, 1, -0.00956744, -0.908974, 0.0147068 )
+transform = Transform( 0.999588, 0.0287204, -5.21658e-14, -0.0287204, 0.999588, -2.03772e-15, 5.20859e-14, 3.53511e-15, 1, -0.00956744, -0.908974, 0.0147068 )
 
 [node name="lower" type="MeshInstance" parent="Mesh/legs/right/knee"]
 transform = Transform( 0.999998, 1.11759e-08, -1.19209e-07, -2.38419e-07, -1.49012e-07, -0.999999, 6.70552e-08, 0.999999, -1.45286e-07, -0.000300884, -0.510887, 0.010267 )
@@ -259,7 +344,7 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="left" type="Position3D" parent="Mesh/legs"]
-transform = Transform( 0.981669, -0.19059, 0, 0.19059, 0.981669, 0, 0, 0, 1, -0.0102438, 2.23576, -0.210141 )
+transform = Transform( 0.976177, 0.216973, 0, -0.216973, 0.976177, 0, 0, 0, 1, -0.0102438, 2.23576, -0.210141 )
 
 [node name="upper" type="MeshInstance" parent="Mesh/legs/left"]
 transform = Transform( 1, 0, 0, 2.98023e-08, -1.62981e-07, -1, -7.45058e-09, 1, -1.62981e-07, 0.00711972, -0.421865, 0.019 )
@@ -267,7 +352,7 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="knee" type="Position3D" parent="Mesh/legs/left"]
-transform = Transform( 0.99891, 0.0466741, 0, -0.0466741, 0.998911, 0, 0, 0, 1, 0.0167009, -0.955345, 0.00863826 )
+transform = Transform( 0.949128, 0.314891, 0, -0.314891, 0.949129, 0, 0, 0, 1, 0.0167009, -0.955345, 0.00863826 )
 
 [node name="lower" type="MeshInstance" parent="Mesh/legs/left/knee"]
 transform = Transform( 1, 1.49012e-08, 3.42727e-07, 2.38419e-07, -1.83471e-07, -1, -2.23517e-08, 1, -1.37836e-07, -0.00734228, -0.503813, 0.0110506 )
@@ -276,15 +361,17 @@ material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 2
-anims/legs_idle = SubResource( 13 )
+anims/hands_walk = SubResource( 23 )
+anims/legs_idle = SubResource( 5 )
 anims/legs_walk = SubResource( 6 )
-anims/torso_idle = SubResource( 5 )
-anims/torso_walk = SubResource( 14 )
+anims/torso_idle = SubResource( 7 )
+anims/torso_walk = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 11 )
+tree_root = SubResource( 19 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 12 )
+parameters/playback = SubResource( 20 )
 parameters/idle/Add2/add_amount = 1.0
 parameters/walk/Add2/add_amount = 1.0
+"parameters/walk/Add2 2/add_amount" = 1.0
