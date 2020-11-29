@@ -88,6 +88,7 @@ func _process(_delta):
 		play_anim("idle")
 
 func play_anim(name):
+	pass
 #	if anim.get_current_node() == name:
 #		return
-	anim.travel(name)
+#	anim.travel(name)
