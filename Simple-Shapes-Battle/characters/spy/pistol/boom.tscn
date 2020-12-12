@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 1, 1, 0, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+spread = 10.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = -500.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_random = 1.0
+scale = 5.0
+scale_random = 1.0
+color_ramp = SubResource( 5 )
+
+[node name="boom" type="Particles2D"]
+position = Vector2( -0.561218, 1.12247 )
+emitting = false
+amount = 100
+lifetime = 0.02
+one_shot = true
+process_material = SubResource( 3 )

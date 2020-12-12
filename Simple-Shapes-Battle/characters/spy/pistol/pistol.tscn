@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/spy/pistol/script.gd" type="Script" id=1]
+[ext_resource path="res://characters/spy/pistol/pistol.png" type="Texture" id=2]
+[ext_resource path="res://characters/spy/pistol/boom.tscn" type="PackedScene" id=3]
+
+[node name="gun" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="point" type="Position2D" parent="."]
+position = Vector2( 21.7039, -3.00118 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="boom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 15.5907, -2.9511 )

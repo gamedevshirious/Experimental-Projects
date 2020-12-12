@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://game_scenes/helper/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_scenes/levels/World.gd" type="Script" id=2]
+[ext_resource path="res://game_scenes/objects/Can/Can.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game_scenes/helper/GameOver/GameOver.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_scenes/levels/city/sky-1.png" type="Texture" id=5]
+[ext_resource path="res://game_scenes/levels/city/sky-2.png" type="Texture" id=6]
+[ext_resource path="res://game_scenes/levels/city/city-3.png" type="Texture" id=7]
+
+[node name="World" type="Node"]
+script = ExtResource( 2 )
+
+[node name="objects" type="Node2D" parent="."]
+position = Vector2( 924.782, 335.139 )
+
+[node name="Floor" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( -725.115, 336.529 )
+rotation = 0.806509
+
+[node name="Floor3" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( -114.293, 602.683 )
+
+[node name="Floor2" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( 636.409, 525.001 )
+rotation = 2.89168
+
+[node name="Can" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 112, 240 )
+
+[node name="players" type="Node" parent="."]
+
+[node name="spawn_points" type="Node" parent="."]
+
+[node name="0" type="Position2D" parent="spawn_points"]
+position = Vector2( 808.992, 509.5 )
+
+[node name="1" type="Position2D" parent="spawn_points"]
+position = Vector2( 1120.87, 593.201 )
+
+[node name="2" type="Position2D" parent="spawn_points"]
+position = Vector2( 658.992, 592.851 )
+
+[node name="GameOver" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+offset = Vector2( 0, 100 )
+transform = Transform2D( 1, 0, 0, 1, 0, 100 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="sky-1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 6.34961 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="sky-2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="city-3" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource( 7 )
+centered = false

@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game_scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://resources/sprites/shapes/circle.png" type="Texture" id=2]
+[ext_resource path="res://resources/themes/default.tres" type="Theme" id=3]
+[ext_resource path="res://multiplayer/lobby/resources/fonts/Pacifico.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 160
+outline_size = 5
+outline_color = Color( 1, 1, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TypeSelector" type="Control" parent="."]
+margin_left = 610.516
+margin_top = 413.159
+margin_right = 810.516
+margin_bottom = 598.159
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="TypeSelector"]
+position = Vector2( 100.678, 35 )
+texture = ExtResource( 2 )
+
+[node name="Prev" type="Button" parent="TypeSelector"]
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 50.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="Button" parent="TypeSelector"]
+margin_left = 150.0
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 50.0
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerNameLabel" type="LineEdit" parent="TypeSelector"]
+margin_left = 1.0
+margin_top = 84.0
+margin_right = 201.0
+margin_bottom = 121.0
+placeholder_text = "Player Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModeSelector" type="Control" parent="."]
+margin_left = 937.266
+margin_top = 405.36
+margin_right = 1383.27
+margin_bottom = 702.36
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SinglePlayer" type="Button" parent="ModeSelector"]
+anchor_right = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 121.0
+text = "Dojo"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multiplayer" type="Button" parent="ModeSelector"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -112.0
+margin_right = 3.05176e-05
+text = "Arena"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 533.128
+margin_top = 63.9081
+margin_right = 1410.13
+margin_bottom = 353.908
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Tussle Stars"
+[connection signal="pressed" from="TypeSelector/Prev" to="." method="_on_Prev_pressed"]
+[connection signal="pressed" from="TypeSelector/Next" to="." method="_on_Next_pressed"]
+[connection signal="text_changed" from="TypeSelector/PlayerNameLabel" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="ModeSelector/SinglePlayer" to="." method="_on_SinglePlayer_pressed"]
+[connection signal="pressed" from="ModeSelector/Multiplayer" to="." method="_on_Multiplayer_pressed"]
