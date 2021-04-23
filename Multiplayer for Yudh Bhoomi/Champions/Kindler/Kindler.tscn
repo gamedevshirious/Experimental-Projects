@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Champions/Rig/lower_arm.png" type="Texture" id=1]
+[ext_resource path="res://Champions/Rig/palm.png" type="Texture" id=2]
+[ext_resource path="res://Champions/Rig/lower_finger.png" type="Texture" id=3]
+[ext_resource path="res://Champions/Rig/upper_thumb.png" type="Texture" id=5]
+[ext_resource path="res://Champions/Rig/upper_arm.png" type="Texture" id=6]
+[ext_resource path="res://Champions/Rig/torso.png" type="Texture" id=9]
+[ext_resource path="res://Champions/Rig/head.png" type="Texture" id=10]
+[ext_resource path="res://Champions/Rig/lower_thumb.png" type="Texture" id=11]
+[ext_resource path="res://Champions/Rig/upper_finger.png" type="Texture" id=12]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "yes"
+tracks/0/type = "value"
+tracks/0/path = NodePath("torso/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("torso/head:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="Kindler" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="left" type="Sprite" parent="."]
+modulate = Color( 0.686275, 0.686275, 0.686275, 1 )
+position = Vector2( 17.931, 27.3587 )
+rotation = -0.0481012
+texture = ExtResource( 6 )
+
+[node name="lower_arm" type="Sprite" parent="left"]
+position = Vector2( -3.88242, 81.8542 )
+texture = ExtResource( 1 )
+
+[node name="palm" type="Sprite" parent="left/lower_arm"]
+position = Vector2( -1.4641, 51.6489 )
+texture = ExtResource( 2 )
+
+[node name="upper_finger" type="Sprite" parent="left/lower_arm/palm"]
+position = Vector2( -9.18614, 16.2109 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="left/lower_arm/palm/upper_finger"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger2" type="Sprite" parent="left/lower_arm/palm"]
+position = Vector2( 7.90139, 13.3629 )
+rotation = -0.495043
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="left/lower_arm/palm/upper_finger2"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger3" type="Sprite" parent="left/lower_arm/palm"]
+position = Vector2( 2.34794, 16.3532 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="left/lower_arm/palm/upper_finger3"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger4" type="Sprite" parent="left/lower_arm/palm"]
+position = Vector2( -3.63269, 16.6381 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="left/lower_arm/palm/upper_finger4"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_thumb" type="Sprite" parent="left/lower_arm/palm"]
+position = Vector2( 13.1987, -1.56636 )
+rotation = -0.62868
+texture = ExtResource( 5 )
+
+[node name="lower_thumb" type="Sprite" parent="left/lower_arm/palm/upper_thumb"]
+position = Vector2( -0.687443, 7.69735 )
+rotation = 0.544373
+texture = ExtResource( 11 )
+
+[node name="torso" type="Sprite" parent="."]
+modulate = Color( 0.505882, 0.505882, 0.505882, 1 )
+position = Vector2( 1.24065, 25.9156 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="head" type="Sprite" parent="torso"]
+position = Vector2( 3.47468, -61.6244 )
+rotation = -0.0155839
+texture = ExtResource( 10 )
+
+[node name="right" type="Sprite" parent="."]
+modulate = Color( 0.686275, 0.686275, 0.686275, 1 )
+position = Vector2( -16.2675, 30.8538 )
+rotation = 0.0335769
+texture = ExtResource( 6 )
+
+[node name="lower_arm" type="Sprite" parent="right"]
+position = Vector2( -3.88242, 81.8542 )
+texture = ExtResource( 1 )
+
+[node name="palm" type="Sprite" parent="right/lower_arm"]
+position = Vector2( -1.4641, 51.6489 )
+texture = ExtResource( 2 )
+
+[node name="upper_finger" type="Sprite" parent="right/lower_arm/palm"]
+position = Vector2( -9.18614, 16.2109 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="right/lower_arm/palm/upper_finger"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger2" type="Sprite" parent="right/lower_arm/palm"]
+position = Vector2( 7.90139, 13.3629 )
+rotation = -0.495043
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="right/lower_arm/palm/upper_finger2"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger3" type="Sprite" parent="right/lower_arm/palm"]
+position = Vector2( 2.34794, 16.3532 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="right/lower_arm/palm/upper_finger3"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_finger4" type="Sprite" parent="right/lower_arm/palm"]
+position = Vector2( -3.63269, 16.6381 )
+texture = ExtResource( 12 )
+
+[node name="lower_finger" type="Sprite" parent="right/lower_arm/palm/upper_finger4"]
+position = Vector2( 0.540359, 10.2669 )
+texture = ExtResource( 3 )
+
+[node name="upper_thumb" type="Sprite" parent="right/lower_arm/palm"]
+position = Vector2( 13.1987, -1.56636 )
+rotation = -0.62868
+texture = ExtResource( 5 )
+
+[node name="lower_thumb" type="Sprite" parent="right/lower_arm/palm/upper_thumb"]
+position = Vector2( -0.687443, 7.69735 )
+rotation = 0.544373
+texture = ExtResource( 11 )
+
+[node name="Position2D" type="Position2D" parent="right"]
+position = Vector2( 0.902624, -35.8401 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/yes = SubResource( 2 )

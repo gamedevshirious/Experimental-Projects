@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://3D/player/uploads_files_978342_LowPolyCharacter_NoFace_rigged.fbx" type="PackedScene" id=1]
+
+[node name="base" instance=ExtResource( 1 )]
+transform = Transform( 0.0662216, 0.9978, -0.00299529, 0, 0.00300188, 0.999995, 0.997805, -0.0662213, 0.000198789, 0, 0, 0 )
+
+[node name="Bone_R003_end" parent="Armature/Bone004_end/Bone002_L005_end/Bone002_L007_end/Bone002_R005_end/Bone002_R007_end/Bone_L003_end" index="0"]
+transform = Transform( 1, -1.06385e-07, -8.53416e-08, -1.06385e-07, -0.2169, -0.976194, 8.53416e-08, 0.976194, -0.2169, 5.55112e-17, 0.00106403, 0 )

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/spy/shotgun/script.gd" type="Script" id=1]
+[ext_resource path="res://characters/spy/shotgun/shotgun1.png" type="Texture" id=2]
+
+[node name="gun" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 104.0 ]
+}
+
+[node name="point" type="Position2D" parent="."]
+position = Vector2( 21.9709, -3.78772 )
+
+[node name="Tween" type="Tween" parent="."]

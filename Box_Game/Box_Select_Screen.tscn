@@ -1,0 +1,47 @@
+[gd_scene format=2]
+
+[node name="Screen" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+position = Vector2( -41.0322, -32.6492 )
+scale = Vector2( 1.08587, 1.11931 )
+polygon = PoolVector2Array( 1021.58, 1.99812, 1025.13, 602.612, -2.87268, 600.612, -0.872681, -1.38852 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="ItemList" type="ItemList" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 258.0
+margin_top = 173.0
+margin_right = 565.0
+margin_bottom = 193.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+items = [ "Speed Box", null, false, "Simple", null, false ]
+select_mode = 0
+allow_reselect = true
+allow_rmb_select = true
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Anchor" ]
+
+

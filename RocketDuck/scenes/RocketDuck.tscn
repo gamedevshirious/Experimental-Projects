@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/RocketDuck_script.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://sfx/jump_sfx.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.568, 30.5423 )
+
+[node name="RocketDuck" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+jump_height = 500
+
+[node name="visibility" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 3.03061, 3.16599 )
+
+[node name="Particles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emitting = false
+amount = 3
+lifetime = 0.3
+local_coords = false
+texture = ExtResource( 2 )
+spread = 0.0
+gravity = Vector2( -300, 0 )
+
+[node name="icon" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="GunPoint" type="Position2D" parent="."]
+
+[node name="boink" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+[connection signal="screen_exited" from="visibility" to="." method="_on_visibility_screen_exited"]

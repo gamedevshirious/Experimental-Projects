@@ -1,0 +1,315 @@
+[gd_scene load_steps=67 format=2]
+
+[ext_resource path="res://catfighter/mid-kick/mid-kick-3.png" type="Texture" id=1]
+[ext_resource path="res://catfighter/CatFighter.gd" type="Script" id=2]
+[ext_resource path="res://catfighter/idle/idle-1.png" type="Texture" id=3]
+[ext_resource path="res://catfighter/idle/idle-0.png" type="Texture" id=4]
+[ext_resource path="res://catfighter/idle/idle-3.png" type="Texture" id=5]
+[ext_resource path="res://catfighter/idle/idle-2.png" type="Texture" id=6]
+[ext_resource path="res://catfighter/walk/walk-1.png" type="Texture" id=7]
+[ext_resource path="res://catfighter/walk/walk-6.png" type="Texture" id=8]
+[ext_resource path="res://catfighter/walk/walk-0.png" type="Texture" id=9]
+[ext_resource path="res://catfighter/walk/walk-5.png" type="Texture" id=10]
+[ext_resource path="res://catfighter/walk/walk-7.png" type="Texture" id=11]
+[ext_resource path="res://catfighter/walk/walk-3.png" type="Texture" id=12]
+[ext_resource path="res://catfighter/jump/jump-3.png" type="Texture" id=13]
+[ext_resource path="res://catfighter/jump/jump-1.png" type="Texture" id=14]
+[ext_resource path="res://catfighter/jump/jump-0.png" type="Texture" id=15]
+[ext_resource path="res://catfighter/jump/jump-2.png" type="Texture" id=16]
+[ext_resource path="res://catfighter/fall/fall-2.png" type="Texture" id=17]
+[ext_resource path="res://catfighter/fall/fall-1.png" type="Texture" id=18]
+[ext_resource path="res://catfighter/fall/fall-3.png" type="Texture" id=19]
+[ext_resource path="res://catfighter/fall/fall-0.png" type="Texture" id=20]
+[ext_resource path="res://catfighter/punch/punch-6.png" type="Texture" id=21]
+[ext_resource path="res://catfighter/punch/punch-5.png" type="Texture" id=22]
+[ext_resource path="res://catfighter/punch/punch-2.png" type="Texture" id=23]
+[ext_resource path="res://catfighter/punch/punch-3.png" type="Texture" id=24]
+[ext_resource path="res://catfighter/punch/punch-1.png" type="Texture" id=25]
+[ext_resource path="res://catfighter/walk/walk-4.png" type="Texture" id=26]
+[ext_resource path="res://catfighter/walk/walk-2.png" type="Texture" id=27]
+[ext_resource path="res://catfighter/mid-kick/mid-kick-2.png" type="Texture" id=28]
+[ext_resource path="res://catfighter/mid-kick/mid-kick-5.png" type="Texture" id=29]
+[ext_resource path="res://catfighter/mid-kick/mid-kick-1.png" type="Texture" id=30]
+[ext_resource path="res://catfighter/with rifle/idle_gun/idle-3.png" type="Texture" id=31]
+[ext_resource path="res://catfighter/with rifle/idle_gun/idle-1.png" type="Texture" id=32]
+[ext_resource path="res://catfighter/with rifle/idle_gun/idle-2.png" type="Texture" id=33]
+[ext_resource path="res://catfighter/with rifle/idle_gun/idle-4.png" type="Texture" id=34]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fall"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle_gun"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.965936, 1 ),
+"update": 1,
+"values": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 31 ), ExtResource( 34 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 13 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 30 ), ExtResource( 1 ), ExtResource( 28 ), ExtResource( 28 ), ExtResource( 29 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "kick_started"
+}, {
+"args": [  ],
+"method": "kick_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 3 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "punch_started"
+}, {
+"args": [  ],
+"method": "punch_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 1.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 27 ), ExtResource( 12 ), ExtResource( 26 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 5.50445
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 3.33101
+height = 7.96628
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "idle_gun"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "kick"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "punch"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachine" id=29]
+states/fall/node = SubResource( 10 )
+states/fall/position = Vector2( 146, 219.809 )
+states/idle/node = SubResource( 11 )
+states/idle/position = Vector2( 297, 137 )
+states/idle_gun/node = SubResource( 12 )
+states/idle_gun/position = Vector2( 542, 234.325 )
+states/jump/node = SubResource( 13 )
+states/jump/position = Vector2( 360, 242 )
+states/kick/node = SubResource( 14 )
+states/kick/position = Vector2( 563, 147.113 )
+states/punch/node = SubResource( 15 )
+states/punch/position = Vector2( 144, 79.113 )
+states/walk/node = SubResource( 16 )
+states/walk/position = Vector2( 485, 47 )
+transitions = [ "idle", "walk", SubResource( 17 ), "walk", "idle", SubResource( 18 ), "idle", "jump", SubResource( 19 ), "jump", "fall", SubResource( 20 ), "fall", "idle", SubResource( 21 ), "idle", "punch", SubResource( 22 ), "punch", "idle", SubResource( 23 ), "walk", "punch", SubResource( 24 ), "idle", "kick", SubResource( 25 ), "kick", "idle", SubResource( 26 ), "idle", "idle_gun", SubResource( 27 ), "idle_gun", "idle", SubResource( 28 ) ]
+start_node = "idle"
+graph_offset = Vector2( 0, 85.325 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=30]
+
+[sub_resource type="CapsuleShape2D" id=31]
+radius = 2.12526
+height = 5.98964
+
+[sub_resource type="CapsuleShape2D" id=32]
+radius = 1.95863
+height = 7.57026
+
+[node name="CatFighter" type="KinematicBody2D"]
+scale = Vector2( 5, 5 )
+script = ExtResource( 2 )
+
+[node name="cat" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cat"]
+anims/fall = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/idle_gun = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/kick = SubResource( 5 )
+anims/punch = SubResource( 6 )
+anims/walk = SubResource( 7 )
+
+[node name="head" type="CollisionShape2D" parent="."]
+position = Vector2( -1.24947, 1.49894 )
+shape = SubResource( 8 )
+
+[node name="body" type="CollisionShape2D" parent="."]
+position = Vector2( -1.372, 15 )
+shape = SubResource( 9 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 29 )
+anim_player = NodePath("../cat/AnimationPlayer")
+active = true
+parameters/playback = SubResource( 30 )
+
+[node name="hand" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand"]
+position = Vector2( 7.60888, 10.1036 )
+rotation = 1.5708
+shape = SubResource( 31 )
+
+[node name="leg" type="Area2D" parent="."]
+position = Vector2( 8.60677, 14.4693 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leg"]
+position = Vector2( 0, -0.200001 )
+rotation = 1.5708
+shape = SubResource( 32 )
+[connection signal="body_entered" from="hand" to="." method="_on_hand_body_entered"]
+[connection signal="body_entered" from="leg" to="." method="_on_leg_body_entered"]

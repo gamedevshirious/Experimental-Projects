@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GUI/default.theme" type="Theme" id=1]
+[ext_resource path="res://Lobby/WaitingRoom.gd" type="Script" id=2]
+
+[node name="WaitingRoom" type="Popup"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -600.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.266667, 0.505882, 0.529412, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1024.0
+margin_top = -600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 60.0
+text = "Waiting Room"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 1024.0
+margin_bottom = 109.0
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/CenterContainer"]
+margin_left = 262.0
+margin_top = 22.0
+margin_right = 762.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 500, 0 )
+items = [ "Player1", null, false, "Player2", null, false ]
+auto_height = true

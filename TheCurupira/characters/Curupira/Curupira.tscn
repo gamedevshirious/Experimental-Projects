@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://characters/Curupira/script.gd" type="Script" id=1]
+[ext_resource path="res://characters/Curupira/sprite.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 19.4285
+
+[node name="TheCurupira" type="KinematicBody2D"]
+scale = Vector2( 2, 2 )
+collision_layer = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 0.334091, -12.2137 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -75 )
+current = true
+limit_top = 0
+limit_bottom = 600

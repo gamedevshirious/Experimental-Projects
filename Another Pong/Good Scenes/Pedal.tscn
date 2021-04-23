@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Good Scenes/Pedal.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="InputEventKey" id=1]
+
+device = 0
+alt = false
+shift = false
+control = false
+meta = false
+command = false
+pressed = false
+scancode = 87
+unicode = 0
+echo = false
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 9.15895, 73.7267 )
+
+[node name="Box" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+up_key = SubResource( 1 )
+down_key = null
+bat_speed = Vector2( 0, 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 0.27685, 2.29193 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 2 )
+
+

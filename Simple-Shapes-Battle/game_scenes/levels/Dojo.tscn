@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://game_scenes/helper/Floor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game_scenes/levels/World.gd" type="Script" id=2]
+[ext_resource path="res://game_scenes/objects/Can/Can.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="objects" type="Node" parent="."]
+
+[node name="Floor" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( -86.3778, 630.508 )
+rotation = 1.5708
+
+[node name="Floor3" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( 0, 336 )
+
+[node name="Floor2" parent="objects" instance=ExtResource( 1 )]
+position = Vector2( 112, 680 )
+rotation = 1.5708
+
+[node name="Can" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 112, 240 )
+
+[node name="Can2" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( -88.1014, 223.01 )
+
+[node name="players" type="Node" parent="."]
+
+[node name="spawn_points" type="Node" parent="."]
+
+[node name="0" type="Position2D" parent="spawn_points"]
+position = Vector2( 48, 192 )
+
+[node name="1" type="Position2D" parent="spawn_points"]
+position = Vector2( 359.878, 275.701 )
+
+[node name="2" type="Position2D" parent="spawn_points"]
+position = Vector2( -102, 275.351 )

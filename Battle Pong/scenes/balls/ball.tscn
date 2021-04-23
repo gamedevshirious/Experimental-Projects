@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="ball" type="RigidBody2D"]
+mass = 0.00102041
+gravity_scale = 0.0
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="effect" type="Tween" parent="."]
+

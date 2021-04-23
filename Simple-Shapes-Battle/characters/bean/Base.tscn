@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://characters/bean/singleplayer.gd" type="Script" id=1]
+[ext_resource path="res://resources/sprites/shapes/circle.png" type="Texture" id=2]
+[ext_resource path="res://game_scenes/helper/HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/bean/abilities.gd" type="Script" id=4]
+[ext_resource path="res://resources/sprites/shapes/capsule.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 32.0
+height = 48.0
+
+[node name="Bean" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource( 3 )]
+
+[node name="body" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="body"]
+texture = ExtResource( 5 )
+
+[node name="weapon" type="Node2D" parent="body"]
+position = Vector2( 0, -45 )
+
+[node name="collision" type="CollisionShape2D" parent="body"]
+position = Vector2( 0, -24 )
+shape = SubResource( 1 )
+
+[node name="head" type="Node2D" parent="body"]
+position = Vector2( 0, -45 )
+
+[node name="head" type="Sprite" parent="body/head"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="camera" type="Camera2D" parent="body/head"]
+offset = Vector2( 0, -100 )
+zoom = Vector2( 0.7, 0.7 )
+smoothing_enabled = true
+
+[node name="labels" type="Node2D" parent="body/head"]
+position = Vector2( 0, 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="name_label" type="Label" parent="body/head/labels"]
+margin_left = -64.0
+margin_top = -30.0
+margin_right = 64.0
+margin_bottom = -16.0
+text = "Temp"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp_bar" type="ProgressBar" parent="body/head/labels"]
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = -35.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="abilities" type="Node" parent="."]
+script = ExtResource( 4 )
