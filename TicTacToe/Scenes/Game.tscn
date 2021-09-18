@@ -56,7 +56,6 @@ scale = Vector2( 1.01944, 1.01666 )
 texture = ExtResource( 3 )
 
 [node name="Buttons" type="GridContainer" parent="objects/Board"]
-editor/display_folded = true
 margin_left = 81.6711
 margin_top = 161.002
 margin_right = 689.671
@@ -124,7 +123,6 @@ texture_normal = ExtResource( 4 )
 [node name="UI" type="Node" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="UI"]
-editor/display_folded = true
 visible = false
 margin_left = 2.0
 margin_top = 24.0
@@ -141,7 +139,6 @@ __meta__ = {
 }
 
 [node name="player1" type="Node2D" parent="UI/PanelContainer/Panel"]
-editor/display_folded = true
 position = Vector2( 0, -100.477 )
 __meta__ = {
 "_edit_group_": true
@@ -168,7 +165,6 @@ scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 5 )
 
 [node name="player2" type="Node2D" parent="UI/PanelContainer/Panel"]
-editor/display_folded = true
 position = Vector2( 0, 4.43277 )
 __meta__ = {
 "_edit_group_": true

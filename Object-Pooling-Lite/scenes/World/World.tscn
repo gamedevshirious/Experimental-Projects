@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PoolSpawner/PoolSpawner.tscn" type="PackedScene" id=2]
+
+[node name="World" type="Node"]
+
+[node name="pool_spawners" type="Node2D" parent="."]
+
+[node name="PoolSpawner1" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 290.494, 60.3212 )
+
+[node name="PoolSpawner2" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 446.06, 474.633 )
+
+[node name="PoolSpawner3" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 961.965, 387.326 )
+
+[node name="PoolSpawner4" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 901.644, 90.4818 )
+
+[node name="PoolSpawner5" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 823.861, 336.529 )
+
+[node name="PoolSpawner6" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 692.107, 80.9574 )
+
+[node name="PoolSpawner7" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 136.516, 90.4819 )
+
+[node name="PoolSpawner8" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 301.606, 277.795 )
+
+[node name="PoolSpawner9" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 236.523, 515.905 )
+
+[node name="PoolSpawner10" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 125.405, 349.228 )
+
+[node name="PoolSpawner11" parent="pool_spawners" instance=ExtResource( 2 )]
+position = Vector2( 73.0204, 520.667 )
+
+[node name="Player" parent="pool_spawners" instance=ExtResource( 1 )]
+position = Vector2( 478.062, 297.302 )

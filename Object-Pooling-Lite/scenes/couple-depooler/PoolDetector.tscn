@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="pooler" type="Area2D"]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 27.3413, -136.468, 68.8723, -138.713, 67.7499, 191.291, 26.2188, 191.291, 26.2188, 227.21, 117.138, 227.21, 112.648, -170.142, 23.9739, -166.774 )
+
+[connection signal="body_entered" from="." to="." method="_on_pooler_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_pooler_body_exited"]
